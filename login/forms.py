@@ -1,13 +1,9 @@
-from .models import Person
+from django.forms import ModelForm
 from django import forms
-class LoginForm(forms.Form):
+from .models import Person
+class LoginForm(ModelForm):
     class Meta:
-    class Meta:
-        model= Person
-        fields=[
-           'email',
-           'password'
-            ]
-       widgets = {
-      'password': forms.PasswordInput()
-         }
+        model = Person
+        labels = {'email': 'Email:','password': 'Password'}
+        fields= ['email', 'password']
+        widgets = {'password': forms.PasswordInput() }
