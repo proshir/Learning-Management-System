@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Student,Teacher,Person
+from .models import Student,Teacher
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    fields=('email','password')
+    fields=('email','password','studentCode')
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     fields=('email','password')
