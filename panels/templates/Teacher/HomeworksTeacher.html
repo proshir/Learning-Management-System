@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeTeacher</title>
+    <title>Homeworks</title>
 </head>
 <body>
-    <p>Hello {{Email}}</p>
+    {% for homework in Homeworks%}
+    <a href=url>{{homework.name}}</a>
+    <br>
+    {%endfor%}
+    <a href={{HomeworkAddUrl}}>Add Homework</a>
 </body>
 </html>

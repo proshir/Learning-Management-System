@@ -1,4 +1,5 @@
 from django.db import models
+from panels.models import Homework
 Types=[('Student','Student'),('Teacher','Teacher')]
 class Person(models.Model):
     email=models.EmailField(max_length=60)
@@ -13,14 +14,16 @@ class Person(models.Model):
         return self.email
 class Student(Person):
     studentCode=models.CharField(max_length=12)
+
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
         self.userType="Student"
-        print(self.__dict__)
 class Teacher(Person):
+    homeworks=[]
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
         self.userType="Teacher"
-        print(self.__dict__)
-   
+    def addHomework(self,hw):
+        self.homeworks.append(hw)
+
 
