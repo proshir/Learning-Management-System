@@ -22,7 +22,7 @@ class Homeworks(View):
         else:
             flag=flag[0]
         if flag.userType=="Teacher":
-            return render(request,"Teacher/HomeworksTeacher.html",{'Homeworks':flag.homeworks,'HomeworkAddUrl':reverse('panels:HomeworkAdd')})
+            return render(request,"Teacher/HomeworksTeacher.html",{'Homeworks':flag.homeworks.all(),'HomeworkAddUrl':reverse('panels:HomeworkAdd')})
         else:
             return render(request,"Student/HomeworksStudent.html")
 class HomeworkAdd(View):
@@ -43,8 +43,8 @@ class HomeworkAdd(View):
         form=self.form_class(request.POST)
         if form.is_valid():
             homework=Homework(**form.cleaned_data)
-            flag.homeworks.append(homework)
-            flag.save()
+            homework.save()
+            flag.addHomework(homework)
             return HttpResponseRedirect(reverse('panels:Homeworks'))
         return render(request, self.template_name, {'form': form})
 

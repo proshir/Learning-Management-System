@@ -8,8 +8,12 @@
 </head>
 <body>
     {% for homework in Homeworks%}
-    <a href=url>{{homework.name}}</a>
-    <br>
+        {% with y=forloop.counter|stringformat:"s" %}
+            {% with url="Homeworks/"|add:y %}
+                <a href={{url}}>{{homework.name}}</a>
+                <br>
+            {%endwith%}
+        {%endwith%}
     {%endfor%}
     <a href={{HomeworkAddUrl}}>Add Homework</a>
 </body>

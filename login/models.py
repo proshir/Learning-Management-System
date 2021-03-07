@@ -18,12 +18,16 @@ class Student(Person):
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
         self.userType="Student"
+        self.save()
 class Teacher(Person):
-    homeworks=[]
+    homeworks=models.ManyToManyField(Homework,related_name='Teacher')
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
         self.userType="Teacher"
+        self.save()
     def addHomework(self,hw):
-        self.homeworks.append(hw)
+        self.homeworks.add(hw)
+        self.save()
+
 
 
