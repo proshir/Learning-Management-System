@@ -9,6 +9,9 @@
 <body>
     <form action="" method="POST">
         {% csrf_token %}
+        {% if error != None %}
+            <p>{{error}}</p>
+        {% endif %}
         {{form.as_p}}
         <input type=submit value="Login">
     </form>
