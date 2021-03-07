@@ -1,4 +1,5 @@
 from django.views.generic import View
+from django.http import HttpResponseRedirect
 from .forms import LoginForm
 class LoginView(View):
     template_name = 'login.html'
@@ -9,7 +10,7 @@ class LoginView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResonseRedirect(reverse('list-view'))
+            return HttpResponseRedirect('')
         else:
+            form=NameForm()
             return render(request, self.template_name, {'form': form})
