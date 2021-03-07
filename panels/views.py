@@ -10,10 +10,10 @@ class HomeView(View):
         flag=CheckUserLogin(request)
         if flag==False:
             return HttpResponseRedirect(reverse('login:LoginPage'))
-        if flag=="Teacher":
-            return render(request, "Teacher/HomeTeacher.html",{'Email':request.session['has_login']['email'],'HomeworksUrl':reverse('panels:Homeworks')})
-        else:
-            return render(request, "Student/HomeStudent.html",{'Email':request.session['has_login']['email']})
+        template_name="Teacher/HomeTeacher.html"
+        if flag=="Student":
+            template_name="Student/HomeStudent.html"
+        return render(request, template_name,{'Email':request.session['has_login']['email'],'HomeworksUrl':reverse('panels:Homeworks')})
 class Homeworks(View):
     def get(self,request,*args,**kwargs):
         flag=CheckUserExistReq(request)
@@ -24,7 +24,7 @@ class Homeworks(View):
         if flag.userType=="Teacher":
             return render(request,"Teacher/HomeworksTeacher.html",{'Homeworks':flag.homeworks.all(),'HomeworkAddUrl':reverse('panels:HomeworkAdd')})
         else:
-            return render(request,"Student/HomeworksStudent.html")
+            return render(request,"Student/HomeworksStudent.html",{'SentHomeworks':flag.homeworks.all()})
 class HomeworkAdd(View):
     form_class=HomeworksAddForm
     template_name="Teacher/HomeworksAddTeacher.html"

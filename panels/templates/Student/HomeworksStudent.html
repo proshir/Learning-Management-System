@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeworks</title>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Last Sumbit Date</th>
+          <th>Sumbit Answer</th>
+          <th>Result</th>
+        </tr>
+        {% for sentHomeworks in SentHomeworks%}
+            <tr>
+                <td>{{sentHomeworks.homework.name}}</td>
+                <td>-</td> 
+                <td>
+                    {% with y=forloop.counter|stringformat:"s" %}
+                        {% with url="Homeworks/"|add:y %}
+                            <a href={{url}}>Sumbit Form</a>
+                        {%endwith%}
+                    {%endwith%}
+                </td>
+                <td>-</td>
+            </tr>
+        {%endfor%}
+    </table>
+
+    {% for homework in Homeworks%}
+        {% with y=forloop.counter|stringformat:"s" %}
+            {% with url="Homeworks/"|add:y %}
+
+            {%endwith%}
+        {%endwith%}
+    {%endfor%}
+</body>
+</html>
