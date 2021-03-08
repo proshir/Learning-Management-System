@@ -14,7 +14,7 @@ class LoginView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         error=""
-        if form.is_valid():
+        if form.is_valid() and form.email.contains("@") and form.email.constains(".com"):
             user=CheckUserExist(**form.cleaned_data)
             if not user:
                 form=self.form_class()

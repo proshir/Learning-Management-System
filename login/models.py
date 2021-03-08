@@ -3,7 +3,7 @@ from panels.models import Homework
 from django.utils.timezone import now
 Types=[('Student','Student'),('Teacher','Teacher')]
 class Person(models.Model):
-    email=models.EmailField(max_length=60)
+    email=models.CharField(max_length=60)
     password=models.CharField(max_length=50)
     userType=models.CharField(max_length=10)
     def exist(email,password,userType,pkUser=None):
@@ -14,7 +14,7 @@ class Person(models.Model):
     def __str__(self):
         return self.email
 class SentHomework(models.Model):
-    homework=models.OneToOneField(Homework,on_delete=models.CASCADE,related_name="SentHomework")
+    homework=models.OneToOneField(Homework,on_delete=models.CASCADE,related_name="SentHomework",primary_key=True)
     #LastSumbit=models.DateTimeField(null=True, blank=True,verbose_name=u'LastSumbit',default=None)
     Answer=models.FileField(upload_to='uploads/')
     Result=models.FloatField(null=True)
