@@ -3,7 +3,7 @@ from panels.models import Homework
 from django.utils.timezone import now
 Types=[('Student','Student'),('Teacher','Teacher')]
 class Person(models.Model):
-    email=models.CharField(max_length=60)
+    email=models.EmailField(max_length=60)
     password=models.CharField(max_length=50)
     userType=models.CharField(max_length=10)
     def exist(email,password,userType,pkUser=None):
