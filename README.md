@@ -1,6 +1,7 @@
 # Learning Management System
 <p align="center">
   <img src="https://github.com/proshir/yadgir/assets/19504971/8a3abd53-9d7c-41df-b763-1f1322c7a2fa" alt="LMS Image">
+</p>
 
 This project, created as part of my basic programming course at Tehran University, is a Django-based web application designed to facilitate effective communication and resource sharing between teachers and students. It streamlines the educational process by offering two distinct user roles:
 
