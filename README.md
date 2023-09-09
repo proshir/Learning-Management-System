@@ -1,4 +1,7 @@
 # Learning Management System
+<p align="center">
+  <img src="https://github.com/proshir/yadgir/assets/19504971/8a3abd53-9d7c-41df-b763-1f1322c7a2fa" alt="LMS Image">
+
 This project, created as part of my basic programming course at Tehran University, is a Django-based web application designed to facilitate effective communication and resource sharing between teachers and students. It streamlines the educational process by offering two distinct user roles:
 
 Teacher: This user type can upload educational videos and files, providing valuable supplementary resources to students.
@@ -31,8 +34,6 @@ Database Configuration: Set up the database by running migrations.
 Run the Application: Start the Django development server to run the application locally.
 
 Access the Application: Open your web browser and navigate to http://localhost:8000 to explore and utilize the Course Management System.
-
-![lms](https://github.com/proshir/yadgir/assets/19504971/3acbd74d-24fb-46b4-b866-22c5e4894562)
 
 ## Contributions
 Contributions are encouraged! If you have ideas for improvements or encounter any issues, please open an issue or submit a pull request.
